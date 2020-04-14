@@ -1,16 +1,16 @@
 package hong;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AttendeeManager {
-	Attendee attendee;	
+	ArrayList<Attendee> attendees = new ArrayList<Attendee>();	
 	Scanner input;
 	AttendeeManager(Scanner input) {
-		this.input = input;
-		
+		this.input = input;		
 	}
 	public void addAttendee() {
-		attendee = new Attendee();
+		Attendee attendee = new Attendee();
 		System.out.print("Attendee ID:");
 		attendee.id = input.nextInt();
 		System.out.print("Attendee name:");
@@ -19,24 +19,35 @@ public class AttendeeManager {
 		attendee.email = input.next();
 		System.out.print("Phone number:");
 		attendee.phone = input.next();
+		attendees.add(attendee);
 	}
 	
 	public void deleteAttendee() {
 		System.out.print("Attendee ID:");
 		int attendeeId = input.nextInt();
-		if (attendee == null) {
+		int index = -1;
+		for (int i = 0; i<attendees.size(); i++) {
+			if (attendees.get(i).id == attendeeId) {
+				index = i;
+				break;
+			}
+		}
+		
+		if (index >=0) {
+			attendees.remove(index);
+		System.out.println("the attendee" +attendeeId + "is deleted");
+		}
+		else {
 			System.out.println("the attendee has not been registered");	
 			return;
-		}
-		if (attendee.id == attendeeId) {
-			attendee = null;
-			System.out.println("the attendee is deleted");
-		}
+		}			
 	}
 	
 	public void editAttendee() {
 		System.out.print("Attendee ID:");
 		int attendeeId = input.nextInt();
+		for (int i = 0; i<attendees.size(); i++) {
+			Attendee attendee = attendees.get(i);
 		if (attendee.id == attendeeId) {
 			int num = -1;
 			while(num != 5) {
@@ -66,18 +77,18 @@ public class AttendeeManager {
 		        }
 		    else {
 		    	continue;
-		        }  
-			}
-			System.out.println("the attendee to be edited is " + attendeeId);
-		}
+		         } //if 
+			  }	//while
+			break;
+		   } //if
+	    } //for
 	}
 	
 	public void viewAttendee() {
-		System.out.print("Attendee ID:");
-		int attendeeId = input.nextInt();
-		if (attendee.id == attendeeId) {
-			attendee.printInfo();
-		}	
+//		System.out.print("Attendee ID:");
+//		int attendeeId = input.nextInt();
+		for (int i = 0; i<attendees.size(); i++) {
+			attendees.get(i).printInfo();
+		}
 	}
-
 }
