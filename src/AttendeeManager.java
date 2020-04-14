@@ -1,4 +1,4 @@
-package hong;
+package jump;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -35,7 +35,7 @@ public class AttendeeManager {
 		
 		if (index >=0) {
 			attendees.remove(index);
-		System.out.println("the attendee" +attendeeId + "is deleted");
+		System.out.println("the attendee " +attendeeId + " is deleted");
 		}
 		else {
 			System.out.println("the attendee has not been registered");	
@@ -57,7 +57,7 @@ public class AttendeeManager {
 		    System.out.println("3. Edit Email");
 		    System.out.println("4. View Phone");
 		    System.out.println("5. Exit");
-		    System.out.println("Select one number between 1 - 6:");
+		    System.out.println("Select one number between 1 - 5:");
 		    num = input.nextInt();
 		    if (num == 1) {
 		    	System.out.print("Attendee ID:");
