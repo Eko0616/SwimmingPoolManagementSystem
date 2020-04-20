@@ -3,31 +3,61 @@ package jump;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import attendee.Attendee;
+import attendee.HighSchoolAttendee;
+
 public class AttendeeManager {
 	ArrayList<Attendee> attendees = new ArrayList<Attendee>();	
 	Scanner input;
 	AttendeeManager(Scanner input) {
-		this.input = input;		
+		this.input = input;	
 	}
 	public void addAttendee() {
-		Attendee attendee = new Attendee();
-		System.out.print("Attendee ID:");
-		attendee.id = input.nextInt();
-		System.out.print("Attendee name:");
-		attendee.name = input.next();
-		System.out.print("Email address:");
-		attendee.email = input.next();
-		System.out.print("Phone number:");
-		attendee.phone = input.next();
-		attendees.add(attendee);
-	}
+		int kind = 0;
+		Attendee attendee;
+		while(kind != 1 && kind != 2 && kind != 3 && kind != 4) {
+		System.out.print("1 for University");
+		System.out.print("2 for High School");
+		System.out.print("3 for Middle School");
+		System.out.print("4 for Elementary School");
+		System.out.print("Select num for Attendee Kind between 1 and 4:");
+		kind = input.nextInt();
+		if (kind == 1) {
+			attendee = new Attendee();
+			attendee.getUserInput(input);
+			attendees.add(attendee);
+			break;
+		}
+		else if (kind ==2) {
+			attendee = new HighSchoolAttendee();
+			attendee.getUserInput(input);
+			attendees.add(attendee);
+			break;
+		}
+		else if (kind ==3) {
+			attendee = new HighSchoolAttendee();
+			attendee.getUserInput(input);
+			attendees.add(attendee);
+			break;
+		}
+		else if (kind ==4) {
+			attendee = new HighSchoolAttendee();
+			attendee.getUserInput(input);
+			attendees.add(attendee);
+			break;
+		}
+		else {
+			System.out.print("Select num for Attendee Kind between 1 and 2:");
+		  }		
+     	}
+     }
 	
 	public void deleteAttendee() {
 		System.out.print("Attendee ID:");
 		int attendeeId = input.nextInt();
 		int index = -1;
 		for (int i = 0; i<attendees.size(); i++) {
-			if (attendees.get(i).id == attendeeId) {
+			if (attendees.get(i).getId() == attendeeId) {
 				index = i;
 				break;
 			}
@@ -48,7 +78,7 @@ public class AttendeeManager {
 		int attendeeId = input.nextInt();
 		for (int i = 0; i<attendees.size(); i++) {
 			Attendee attendee = attendees.get(i);
-		if (attendee.id == attendeeId) {
+		if (attendee.getId() == attendeeId) {
 			int num = -1;
 			while(num != 5) {
 			System.out.println("*** AttendeeInfo Edit Menu ***");
@@ -61,20 +91,29 @@ public class AttendeeManager {
 		    num = input.nextInt();
 		    if (num == 1) {
 		    	System.out.print("Attendee ID:");
-				attendee.id = input.nextInt();
+				int id = input.nextInt();
+				attendee.setId(id);
 		        }
 		    else if (num == 2) {
 		    	System.out.print("Attendee name:");
-				attendee.name = input.next();
+				String name = input.next();
+				attendee.setName(name);
 		        }
 		    else if (num == 3) {
 		    	System.out.print("Email address:");
-				attendee.email = input.next();
+				String email = input.next();
+				attendee.setEmail(email);
 		    }
 		    else if (num == 4) {
 		    	System.out.print("Phone number:");
-				attendee.phone = input.next();
+				String phone = input.next();
+				attendee.setPhone(phone);
 		        }
+		    else if (num == 5) {
+		    	System.out.print("The group:");
+				String group = input.next();
+				attendee.setGroup(group);
+		    }
 		    else {
 		    	continue;
 		         } //if 
@@ -87,6 +126,7 @@ public class AttendeeManager {
 	public void viewAttendee() {
 //		System.out.print("Attendee ID:");
 //		int attendeeId = input.nextInt();
+		System.out.println(" # of registered attendees: " + attendees.size());
 		for (int i = 0; i<attendees.size(); i++) {
 			attendees.get(i).printInfo();
 		}
