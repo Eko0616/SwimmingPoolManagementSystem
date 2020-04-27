@@ -9,7 +9,7 @@ public class MenuManager {
 	      
 	      int num = -1;
 	      while(num != 5) {
-	      System.out.println("*** Attendee Management System Menu ***");
+	      System.out.println("*** SwimmingPool Attendee Management System Menu ***");
 	      System.out.println("1. Add Attendee");
 	       System.out.println("2. Delete Attendee");
 	       System.out.println("3. Edit Attendee");
