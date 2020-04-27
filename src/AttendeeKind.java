@@ -4,7 +4,7 @@ public enum AttendeeKind {
 	University,
 	HighSchool,
 	MiddleSchool,
-	Elementary
+	ElementarySchool
 
 
 }
