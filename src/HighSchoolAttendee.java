@@ -3,6 +3,10 @@ package attendee;
 import java.util.Scanner;
 
 public class HighSchoolAttendee extends Attendee {
+	
+	public HighSchoolAttendee(AttendeeKind kind) {
+		super(kind);
+	}
 
 public void getUserInput(Scanner input) {
  	System.out.print("Attendee ID:");
