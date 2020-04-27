@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import attendee.Attendee;
+import attendee.AttendeeKind;
+import attendee.ElementarySchoolAttendee;
 import attendee.HighSchoolAttendee;
 
 public class AttendeeManager {
@@ -16,32 +18,32 @@ public class AttendeeManager {
 		int kind = 0;
 		Attendee attendee;
 		while(kind != 1 && kind != 2 && kind != 3 && kind != 4) {
-		System.out.print("1 for University");
-		System.out.print("2 for High School");
-		System.out.print("3 for Middle School");
-		System.out.print("4 for Elementary School");
+		System.out.println("1 for University");
+		System.out.println("2 for High School");
+		System.out.println("3 for Middle School");
+		System.out.println("4 for Elementary School");
 		System.out.print("Select num for Attendee Kind between 1 and 4:");
 		kind = input.nextInt();
 		if (kind == 1) {
-			attendee = new Attendee();
+			attendee = new Attendee(AttendeeKind.University);
 			attendee.getUserInput(input);
 			attendees.add(attendee);
 			break;
 		}
 		else if (kind ==2) {
-			attendee = new HighSchoolAttendee();
+			attendee = new HighSchoolAttendee(AttendeeKind.HighSchool);
 			attendee.getUserInput(input);
 			attendees.add(attendee);
 			break;
 		}
 		else if (kind ==3) {
-			attendee = new HighSchoolAttendee();
+			attendee = new HighSchoolAttendee(AttendeeKind.HighSchool);
 			attendee.getUserInput(input);
 			attendees.add(attendee);
 			break;
 		}
 		else if (kind ==4) {
-			attendee = new HighSchoolAttendee();
+			attendee = new ElementarySchoolAttendee(AttendeeKind.ElementarySchool);
 			attendee.getUserInput(input);
 			attendees.add(attendee);
 			break;
