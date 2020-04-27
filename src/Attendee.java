@@ -13,12 +13,25 @@ public class Attendee {
 	public Attendee() {
 	}
 	
+	public Attendee(AttendeeKind kind) {
+		this.kind = kind;
+	}
+	
 	public Attendee(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
 	
 	public Attendee(String name, int id, String email, String phone, String group) {		
+		this.name = name;
+		this.id = id;
+		this.email = email;
+		this.phone = phone;
+		this.group = group;
+	}
+	
+	public Attendee(AttendeeKind kind,String name, int id, String email, String phone, String group) {
+		this.kind = kind;
 		this.name = name;
 		this.id = id;
 		this.email = email;
@@ -64,7 +77,7 @@ public class Attendee {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+	
 	public String getGroup() {
 		return group;
 	}
@@ -74,7 +87,24 @@ public class Attendee {
 	}
 
 	public void printInfo() {
-		System.out.println(" name: " + name + " id: " + id + " email: " + email + " phone: " + phone + "group: " + group);
+		String skind = "none";
+		switch(this.kind) {
+		case University:
+			skind = "Univ.";
+			break;
+		case HighSchool:
+			skind = "High";
+			break;
+		case MiddleSchool:
+			skind = "Middle";
+			break;
+		case ElementarySchool:
+			skind = "Elementary";
+			break;
+		default:
+			
+		}
+		System.out.println(" kind: " + skind + " name: " + name + " id: " + id + " email: " + email + " phone: " + phone + "group: " + group);
 	}
 
 
@@ -101,4 +131,3 @@ public class Attendee {
     }
  
 }
-
