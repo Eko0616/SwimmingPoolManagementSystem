@@ -133,4 +133,15 @@ public class AttendeeManager {
 			attendees.get(i).printInfo();
 		}
 	}
+    public void schedulecheck () {
+    	System.out.println("스케줄을 확인하세요");
+    	System.out.println(" A group (M W F) 18:30 - 19:50 ");
+    	System.out.println(" B group (M W F) 16:30 - 17:50 ");
+    	System.out.println(" C group (Tue S) 18:30 - 19:50 ");
+    	System.out.println(" D group (Tue S) 16:30 - 17:50 ");
+    	System.out.println(" F group (W F) 15:30 - 16:50 ");
+    	System.out.println(" WK group (S) 11:30 - 12:50 , 13:30 - 14:50 ");
+    	
+    	
+	}
 }
