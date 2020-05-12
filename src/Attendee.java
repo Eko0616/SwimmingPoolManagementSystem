@@ -2,7 +2,7 @@ package attendee;
 
 import java.util.Scanner;
 
-public class Attendee {
+public abstract class  Attendee implements AttendeeInput{
 	protected AttendeeKind kind = AttendeeKind.University;
 	protected String name;
 	protected int id;
@@ -86,48 +86,56 @@ public class Attendee {
 		this.group = group;
 	}
 
-	public void printInfo() {
-		String skind = "none";
-		switch(this.kind) {
-		case University:
-			skind = "Univ.";
-			break;
-		case HighSchool:
-			skind = "High";
-			break;
-		case MiddleSchool:
-			skind = "Middle";
-			break;
-		case ElementarySchool:
-			skind = "Elementary";
-			break;
-		default:
-			
+	public abstract void printInfo();
+	
+	 public void setAttendeeID(Scanner input) {
+	    	System.out.print("Attendee ID:");
+			int id = input.nextInt();
+			this.setId(id);
+	    }
+	    
+	    public void setAttendeeName(Scanner input) {
+	    	System.out.print("Attendee name:");
+			String name = input.next();
+			this.setName(name);
+	    }
+
+	    public void setAttendeeEmail(Scanner input) {
+	    	System.out.print("Email address:");
+			String email = input.next();
+			this.setEmail(email);
+	    }
+	    
+	    public void setAttendeePhone(Scanner input) {
+	    	System.out.print("Phone number:");
+			String phone = input.next();
+			this.setPhone(phone);
+	    }
+	    
+	    public void setAttendeeGroup(Scanner input) {
+	    	System.out.print("The group:");
+			String group = input.next();
+			this.setGroup(group);
+	    }
+	    
+	    public String getKindString() {
+			String skind = "none";
+			switch(this.kind) {
+			case University:
+				skind = "Univ.";
+				break;
+			case HighSchool:
+				skind = "High";
+				break;
+			case MiddleSchool:
+				skind = "Middle";
+				break;
+			case ElementarySchool:
+				skind = "Elementary";
+				break;
+			default:
+			}
+			return skind;
 		}
-		System.out.println(" kind: " + skind + " name: " + name + " id: " + id + " email: " + email + " phone: " + phone + "group: " + group);
-	}
-
-
-    public void getUserInput(Scanner input) {
-    	System.out.print("Attendee ID:");
-		int id = input.nextInt();
-		this.setId(id);
-		
-		System.out.print("Attendee name:");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Email address:");
-		String email = input.next();
-		this.setEmail(email);
-		
-		System.out.print("Phone number:");
-		String phone = input.next();
-		this.setPhone(phone);
-		
-		System.out.print("The group:");
-		String group = input.next();
-    	this.setGroup(group);
-    }
- 
 }
+
