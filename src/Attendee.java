@@ -2,6 +2,8 @@ package attendee;
 
 import java.util.Scanner;
 
+import exception.EmailFormatException;
+
 public abstract class  Attendee implements AttendeeInput{
 	protected AttendeeKind kind = AttendeeKind.University;
 	protected String name;
@@ -66,7 +68,11 @@ public abstract class  Attendee implements AttendeeInput{
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws EmailFormatException {
+		if (!email.contains("@") && !email.equals("")) {			
+			throw new EmailFormatException();
+		}
+		
 		this.email = email;
 	}
 
@@ -101,9 +107,16 @@ public abstract class  Attendee implements AttendeeInput{
 	    }
 
 	    public void setAttendeeEmail(Scanner input) {
+	    	String email = "";
+	    	while(!email.contains("@")) {
 	    	System.out.print("Email address:");
-			String email = input.next();
-			this.setEmail(email);
+			email = input.next();
+			try {
+				this.setEmail(email);
+			} catch (EmailFormatException e) {
+				System.out.println("Incorrect Email Format. put the e-mail address that contains @");
+			  }
+	       }
 	    }
 	    
 	    public void setAttendeePhone(Scanner input) {
