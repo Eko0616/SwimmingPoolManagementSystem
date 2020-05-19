@@ -1,6 +1,7 @@
 package jump;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import attendee.Attendee;
@@ -19,7 +20,8 @@ public class AttendeeManager {
 	public void addAttendee() {
 		int kind = 0;
 		AttendeeInput attendeeInput;
-		while(kind != 1 && kind != 2 && kind != 3 && kind != 4) {
+		while(kind < 1 || kind > 4) {
+			try {
 		System.out.println("1 for University");
 		System.out.println("2 for High School");
 		System.out.println("3 for Middle School");
@@ -52,8 +54,16 @@ public class AttendeeManager {
 		}
 		else {
 			System.out.print("Select num for Attendee Kind between 1 and 2:");
-		  }		
-     	}
+		  }	
+			}
+	    	  catch(InputMismatchException e) {
+	    		  System.out.println("Please put an integer between 1 and 4!");
+	    		  if(input.hasNext()) {
+	    			  input.next();
+	    		  }
+	    		  kind = -1;	
+     	   }
+		}		
      }
 	
 	public void deleteAttendee() {
