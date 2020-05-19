@@ -2,6 +2,8 @@ package attendee;
 
 import java.util.Scanner;
 
+import exception.EmailFormatException;
+
 public abstract class TeenageAttendee extends Attendee {
 	
 	public TeenageAttendee(AttendeeKind kind) {
@@ -23,20 +25,21 @@ public abstract class TeenageAttendee extends Attendee {
 		{
 		System.out.print("Do you have an Email address? (Y/N)");
 		answer = input.next().charAt(0);
-		if (answer == 'y' || answer == 'Y') {
-			System.out.print("Email address:");
-			String email = input.next();
-			this.setEmail(email);
-			break;
-			
-		}
-		else if (answer == 'n' || answer == 'N') {
-			this.setEmail("");
-			break;
-		}
-		else {
+		try {
+			if (answer == 'y' || answer == 'Y') {
+				setAttendeeEmail(input);
+				break;
 			}
-		}	
-	}
-
+			else if (answer == 'n' || answer == 'N') {
+				this.setEmail("");
+				break;
+			}
+			else {
+				}
+		}
+		catch(EmailFormatException e) {
+			System.out.println("Incorrect Email Format. put the e-mail address that contains @");
+	      }
+		}
+		}
 }
