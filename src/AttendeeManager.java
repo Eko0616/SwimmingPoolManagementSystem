@@ -1,21 +1,29 @@
 package jump;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import attendee.Attendee;
-import attendee.AttendeeKind;
 import attendee.AttendeeInput;
+import attendee.AttendeeKind;
 import attendee.ElementarySchoolAttendee;
 import attendee.HighSchoolAttendee;
 import attendee.UniversityAttendee;
 
-public class AttendeeManager {
+public class AttendeeManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7430302518543712680L;
+	
 	ArrayList<AttendeeInput> attendees = new ArrayList<AttendeeInput>();	
-	Scanner input;
+	transient Scanner input;
 	AttendeeManager(Scanner input) {
 		this.input = input;	
+	}
+	public void setScanner(Scanner input) {
+		this.input = input;
 	}
 	public void addAttendee() {
 		int kind = 0;
