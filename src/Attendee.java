@@ -1,10 +1,15 @@
 package attendee;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.EmailFormatException;
 
-public abstract class  Attendee implements AttendeeInput{
+public abstract class  Attendee implements AttendeeInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6635299185845580948L;
 	protected AttendeeKind kind = AttendeeKind.University;
 	protected String name;
 	protected int id;
