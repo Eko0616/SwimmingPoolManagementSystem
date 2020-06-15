@@ -2,6 +2,10 @@ package attendee;
 
 import java.util.Scanner;
 
+package attendee;
+
+import java.util.Scanner;
+
 public class UniversityAttendee extends Attendee {
 	
 	public UniversityAttendee(AttendeeKind kind) {
@@ -20,7 +24,5 @@ public class UniversityAttendee extends Attendee {
 		String skind = getKindString();	
 		System.out.println(" kind: " + skind + " name: " + name + " id: " + id + " email: " + email + " phone: " + phone + "group: " + group);
 	}
-
- 
 
 }
