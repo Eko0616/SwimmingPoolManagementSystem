@@ -39,7 +39,7 @@ public abstract class TeenageAttendee extends Attendee {
 		}
 		catch(EmailFormatException e) {
 			System.out.println("Incorrect Email Format. put the e-mail address that contains @");
-	      }
+			}
 		}
-		}
+	}
 }
