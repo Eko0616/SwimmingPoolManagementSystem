@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import attendee.Attendee;
 import attendee.AttendeeInput;
 import attendee.AttendeeKind;
 import attendee.ElementarySchoolAttendee;
@@ -147,6 +148,15 @@ public class AttendeeManager implements Serializable {
 			attendees.get(i).printInfo();
 	   }
 	}
+	
+	public int size() {
+		return attendees.size();
+	}
+	
+	public AttendeeInput get(int index) {
+		return (Attendee) attendees.get(index);
+	}
+	
     public void schedulecheck () {
     	System.out.println("스케줄을 확인하세요");
     	System.out.println(" A group (M W F) 18:30 - 19:50 ");
@@ -169,5 +179,5 @@ public class AttendeeManager implements Serializable {
 	    System.out.println("5. Exit");
 	    System.out.println("Select one number between 1 - 5:");
 		
-	  }
+	  	}
 	}
