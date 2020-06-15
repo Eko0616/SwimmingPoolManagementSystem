@@ -53,5 +53,4 @@ public class ElementarySchoolAttendee extends TeenageAttendee {
 		System.out.println(" kind: " + skind + " name: " + name + " id: " + id + " email: " + email + " phone: " + phone + " parent's email: " + email + " parent's phone: " + phone + " group: " + group);
 	}
 	
-
 }
