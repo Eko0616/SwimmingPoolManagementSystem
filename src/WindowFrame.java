@@ -3,16 +3,23 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import jump.AttendeeManager;
+
 public class WindowFrame extends JFrame {
+	
+	AttendeeManager attendeeManager;
 	
 	MenuSelection menuselection;
 	AttendeeAdder attendeeadder;
 	AttendeeViewer attendeeviewer;
 	
-	public WindowFrame() {
+	
+	public WindowFrame(AttendeeManager attendeeManager) {
+		this.attendeeManager = attendeeManager;
 		this.menuselection  = new MenuSelection(this);
 		this.attendeeadder  = new AttendeeAdder(this);
-		this.attendeeviewer  = new AttendeeViewer(this);
+		this.attendeeviewer  = new AttendeeViewer(this, this.attendeeManager);
+		
 		
 		this.setSize(500, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
