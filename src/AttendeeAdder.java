@@ -55,7 +55,8 @@ public class AttendeeAdder extends JPanel {
 		
 	
 		this.add(panel);
-		this.setVisible(true);	
+		this.setVisible(true);
+		
 	}
-}
 
+}
