@@ -156,4 +156,3 @@ public abstract class  Attendee implements AttendeeInput, Serializable{
 			return skind;
 		}
 }
-
