@@ -2,17 +2,26 @@ package attendee;
 import java.util.Scanner;
 
 import exception.EmailFormatException;
+
 public interface AttendeeInput {
 
 		public int getId();
 		
 		public void setId(int id);
 		
+		public String getEmail();
+		
 		public void setEmail(String email) throws EmailFormatException;
+		
+		public String getName();
 		
 		public void setName(String name);
 		
+		public String getPhone();
+		
 		public void setPhone(String phone);
+		
+		public String getGroup();
 		
 		public void setGroup(String group);
 		
@@ -32,5 +41,3 @@ public interface AttendeeInput {
 		 
 
 	}
-
-
