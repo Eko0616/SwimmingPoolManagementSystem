@@ -45,5 +45,5 @@ public class MenuSelection extends JPanel {
 		this.add(panel2, BorderLayout.CENTER);
 		
 	}
-
+	
 }
