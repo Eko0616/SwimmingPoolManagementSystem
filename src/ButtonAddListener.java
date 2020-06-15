@@ -23,5 +23,4 @@ public class ButtonAddListener implements ActionListener {
 		AttendeeAdder adder = frame.getAttendeeadder();
 		frame.setupPanel(adder);
 	}
-
 }
